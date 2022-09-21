@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {# Cargamos la librería #}
+    {% comment %} {% load bootstrap4 %} {% endcomment %}
+    
+    {# CSS Bootstrap #}
+    {% comment %} {% bootstrap_css %}  {% endcomment %}
+  </head>
+  <body>
+    <form method="POST" class="post-form" action="/update/{{patient.id}}">
+      {% csrf_token %}
+      <div class="container">
+        <br />
+        <div class="row justify-content-center">
+          <div class="col-md-12 form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-md-12 col-sm-4">
+              <h3 class="font-weight-bold text-center">Update Details</h3>
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Id:</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="text" name="pid" id="id_pid" required maxlength="20" value="{{ patient.pid }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Name:</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="text" name="pname" id="id_pname" required maxlength="100" value="{{ patient.pname }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Last Name:</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="text" name="plast_name" id="id_plast_name" required maxlength="100" value="{{ patient.plast_name }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Age:</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="number" name="page" id="id_page" required maxlength="2" value="{{ patient.page }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Weight (Kg):</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="number" name="pweight" id="id_pweight" required maxlength="5" value="{{ patient.pweight }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Heart Rate (bmp):</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="number" name="pheart_rate" id="id_pheart_rate" required maxlength="3" value="{{ patient.pheart_rate }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient SpO2 (%):</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="number" name="pspo2" id="id_pspo2" required maxlength="3" value="{{ patient.pspo2 }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="offset-md-4 col-sm-2 col-form-label">Patient Stress Level:</label>
+            <div class="offset-md-4 col-sm-4">
+              <input type="text" name="pestres" id="id_pestres" required maxlength="100" value="{{ patient.pestres }}" />
+            </div>
+          </div>
+          <div class="col-md-12 form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="offset-md-3 col-sm-4">
+              <a href="/home" class="btn btn-warning text-white">Back</a>
+              <button type="submit" class="btn btn-success">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    {# JS y jQuery Bootstrap #}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% comment %} {% bootstrap_javascript jquery='full' %} {% endcomment %}
+  </body>
+</html>
